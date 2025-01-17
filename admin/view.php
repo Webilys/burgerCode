@@ -80,7 +80,7 @@ function checkInput($data)
             <div class="col-md-6 col-lg-4 site">
                 <div class="img-thumbnail">
                     <img src="<?php echo '../images/' . $item['image']; ?>" class="img-fluid" alt="..." />
-                    <div class="price"><?php echo number_format((float) $item['price'], 2, '.', ''); ?></div>
+                    <div class="price"><?php echo number_format((float) $item['price'], 2, '.', '') . ' €'; ?></div>
                     <div class="caption">
                         <h4><?php echo $item['name']; ?></h4>
                         <p>
