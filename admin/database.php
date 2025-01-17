@@ -1,19 +1,33 @@
 <?php
-$dbHost = "localhost";
-$dbName = "burger_code";
-$dbUser = "priscilla";
-$dbUserPassword = "Yoann110712@$";
+class Database
+{
+    private static $dbHost = "localhost";
+    private static $dbName = "burger_code";
+    private static $dbUser = "priscilla";
+    private static $dbUserPassword = "Yoann110712@$";
 
-try {
-    //DONNÉES DE BASE DE DONNÉES SUR SERVEUR : 
-    // $database = new PDO('mysql:host=db5017023525.hosting-data.io;dbname=dbs13708604; charset=utf8', 'dbu5498364', 'Yoann110712@$');
-    $connection = new PDO('mysql:host=' . $dbHost . ';dbname=' . $dbName . '; charset=utf8', $dbUser, $dbUserPassword);
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    private static $connection = null;
 
-} catch (Exception $e) {
-    die('ERROR:' . $e->getMessage());
+    public static function connect()
+    {
+        try {
+            self::$connection = new PDO(
+                "mysql:host=" . self::$dbHost . ";dbname=" . self::$dbName . ";charset=utf8",
+                self::$dbUser,
+                self::$dbUserPassword
+            );
+            self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (Exception $e) {
+            die('ERROR:' . $e->getMessage());
+        }
+        return self::$connection;
+    }
+
+    public static function disconnect()
+    {
+        self::$connection = null;
+    }
 }
 
-
-
+Database::connect();
 ?>
