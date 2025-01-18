@@ -145,14 +145,14 @@ function checkInput($data)
                     <input type="file" name="image" id="image">
                 </div>
                 <span class="help-inline"><?php echo $imageError; ?></span>
+                <div class="form-actions">
+                    <br>
+                    <button type="submit" class="btn btn-success"><span
+                            class="glyphicon glyphicon-pencil"></span>Ajouter</button>
+                    <a href="index.php" class="btn btn-primary"><span
+                            class="glyphicon glyphicon-arrow-left"></span>Retour</a>
+                </div>
             </form>
-            <div class="form-actions">
-                <br>
-                <button type="submit" class="btn btn-success"><span
-                        class="glyphicon glyphicon-pencil"></span>Ajouter</button>
-                <a href="index.php" class="btn btn-primary"><span
-                        class="glyphicon glyphicon-arrow-left"></span>Retour</a>
-            </div>
         </div>
     </div>
 </body>
