@@ -4,8 +4,68 @@ require 'database.php';
 $nameError = $descriptionError = $priceError = $categoryError = $imageError = $name = $description = $price = $category = $image = "";
 
 if (!empty($_POST)) {
-    $name = $_POST['name'];
+    $name = checkInput($_POST['name']);
+    $description = checkInput($_POST['description']);
+    $price = checkInput($_POST['price']);
+    $category = checkInput($_POST['category']);
+    $image = checkInput($_FILES['image']['name']);
+    $imagePath = '../images/' . basename($image);
+    $imageExtension = pathinfo($imagePath, PATHINFO_EXTENSION);
+    $isSuccess = true;
+    $isUploadSuccess = false;
 
+    if (empty($name)) {
+        $nameError = "Le nom du produit est requis";
+        $isSuccess = false;
+    }
+
+    if (empty($description)) {
+        $descriptionError = "La description est requise";
+        $isSuccess = false;
+    }
+
+    if (empty($price)) {
+        $priceError = "Le prix est requis";
+        $isSuccess = false;
+    }
+
+    if (empty($category)) {
+        $categoryError = "La catégorie est requise";
+        $isSuccess = false;
+    }
+
+    if (empty($image)) {
+        $imageError = "Une image est requise";
+        $isSuccess = false;
+    } else {
+        $isUploadSuccess = true;
+        if ($imageExtension != "jpg" && $imageExtension != "jpeg" && $imageExtension != "png" && $imageExtension != "webp") {
+            $imageError = "Les formats autorisés sont : .jpg, .jpeg, .png, .webp";
+            $isUploadSuccess = false;
+        }
+        if (file_exists($imagePath)) {
+            $imageError = "Le nom du fichier existe déjà";
+            $isUploadSuccess = false;
+        }
+        if ($_FILES['image']['size'] > 500000) {
+            $imageError = "Le fichier ne doit pas dépasser 500kB";
+            $isUploadSuccess = false;
+        }
+        if ($isUploadSuccess) {
+            if (!move_uploaded_file($FILES['image']['tmp_name'], $imagePath)) {
+                $imageError = "Erreur lors du téléchargement du fichier";
+                $isUploadSuccess = false;
+            }
+        }
+    }
+
+    if ($isSuccess && $isUploadSuccess) {
+        $db = Database::connect();
+        $statement = $db->prepare("INSERT INTO items (name,description,price, category, image) VALUES(?,?,?,?,?)");
+        $statement->execute(array($name, $description, $price, $category, $image));
+        Database::disconnect();
+        header("Location:index.php");
+    }
 }
 
 function checkInput($data)
@@ -86,8 +146,8 @@ function checkInput($data)
                 </div>
                 <span class="help-inline"><?php echo $imageError; ?></span>
             </form>
-            <br>
             <div class="form-actions">
+                <br>
                 <button type="submit" class="btn btn-success"><span
                         class="glyphicon glyphicon-pencil"></span>Ajouter</button>
                 <a href="index.php" class="btn btn-primary"><span
