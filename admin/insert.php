@@ -14,6 +14,7 @@ if (!empty($_POST)) {
     $isSuccess = true;
     $isUploadSuccess = false;
 
+    // Validations des champs
     if (empty($name)) {
         $nameError = "Le nom du produit est requis";
         $isSuccess = false;
@@ -24,8 +25,8 @@ if (!empty($_POST)) {
         $isSuccess = false;
     }
 
-    if (empty($price)) {
-        $priceError = "Le prix est requis";
+    if (empty($price) || !is_numeric($price) || $price <= 0) {
+        $priceError = "Veuillez entrer un prix valide";
         $isSuccess = false;
     }
 
@@ -39,6 +40,8 @@ if (!empty($_POST)) {
         $isSuccess = false;
     } else {
         $isUploadSuccess = true;
+
+        // Vérifications sur le fichier
         if ($imageExtension != "jpg" && $imageExtension != "jpeg" && $imageExtension != "png" && $imageExtension != "webp") {
             $imageError = "Les formats autorisés sont : .jpg, .jpeg, .png, .webp";
             $isUploadSuccess = false;
@@ -51,20 +54,26 @@ if (!empty($_POST)) {
             $imageError = "Le fichier ne doit pas dépasser 500kB";
             $isUploadSuccess = false;
         }
+        if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+            $imageError = "Erreur lors du téléchargement de l'image";
+            $isUploadSuccess = false;
+        }
         if ($isUploadSuccess) {
-            if (!move_uploaded_file($FILES['image']['tmp_name'], $imagePath)) {
+            if (!move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
                 $imageError = "Erreur lors du téléchargement du fichier";
                 $isUploadSuccess = false;
             }
         }
     }
 
+    // Insertion en base de données
     if ($isSuccess && $isUploadSuccess) {
         $db = Database::connect();
         $statement = $db->prepare("INSERT INTO items (name,description,price, category, image) VALUES(?,?,?,?,?)");
         $statement->execute(array($name, $description, $price, $category, $image));
         Database::disconnect();
-        header("Location:index.php");
+        header("Location: index.php");
+        exit;
     }
 }
 
