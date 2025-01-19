@@ -11,7 +11,7 @@
   <link href="http://fonts.googleapis.com/css?family=Holtwood+One+SC" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
@@ -67,7 +67,7 @@
     <div class="caption">
     <h4>' . $item['name'] . '</h4>
     <p>' . $item['description'] . '</p>
-    <a href="#" class="btn btn-order" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Commander</a>
+    <a href="#" class="btn btn-order" role="button"><i class="fa-solid fa-cart-plus"></i> Commander</a>
     </div>
     </div>
     </div>';
@@ -83,6 +83,13 @@
 
 
   </div>
+
+  <footer>
+    <div class="container copyright">
+      <p class="copyright-text">©2025 - Burger Code - Made with <i class="fa-solid fa-heart"></i> by <a
+          href="https://webilys.fr" target="_blank">Webilys</a> - Tous droits réservés.</p>
+    </div>
+  </footer>
 </body>
 
 </html>

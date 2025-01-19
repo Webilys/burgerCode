@@ -38,7 +38,7 @@ function checkInput($data)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
@@ -47,11 +47,11 @@ function checkInput($data)
     </h1>
     <div class="container admin">
         <div class="row">
-            <h1><strong>Supprimer un item </strong></h1>
+            <h1><strong>Supprimer un produit </strong></h1>
             <br>
             <form class="form" role="form" action="delete.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-                <p class="alert alert-warning">Êtes-vous sûr(e) de vouloir supprimer cet item ?</p>
+                <p class="alert alert-warning">Êtes-vous sûr(e) de vouloir supprimer ce produit ?</p>
                 <div class="form-actions">
                     <br>
                     <button type="submit" class="btn btn-warning">Oui</button>

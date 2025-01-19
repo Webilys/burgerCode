@@ -36,7 +36,7 @@ function checkInput($data)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
@@ -46,7 +46,7 @@ function checkInput($data)
     <div class="container admin">
         <div class="row">
             <div class="col-sm-6">
-                <h1><strong>Voir un item </strong></h1>
+                <h1><strong>Fiche produit </strong></h1>
                 <br>
                 <form>
                     <div class="form-group">
@@ -76,8 +76,7 @@ function checkInput($data)
                 </form>
                 <br>
                 <div class="form-actions">
-                    <a href="index.php" class="btn btn-primary"><span
-                            class="glyphicon glyphicon-arrow-left"></span>Retour</a>
+                    <a href="index.php" class="btn btn-primary"><i class="fa-solid fa-circle-arrow-left"></i> Retour</a>
                 </div>
             </div>
 
@@ -90,7 +89,8 @@ function checkInput($data)
                         <p>
                             <?php echo $item['description']; ?>
                         </p>
-                        <a href="#" class="btn btn-order" role="button"><span class="bi-cart-fill"></span> Commander</a>
+                        <a href="#" class="btn btn-order" role="button"><i class="fa-solid fa-cart-plus"></i>
+                            Commander</a>
                     </div>
                 </div>
             </div>

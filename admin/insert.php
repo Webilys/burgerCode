@@ -100,7 +100,7 @@ function checkInput($data)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
@@ -109,7 +109,7 @@ function checkInput($data)
     </h1>
     <div class="container admin">
         <div class="row">
-            <h1><strong>Ajouter un item </strong></h1>
+            <h1><strong>Ajouter un produit </strong></h1>
             <br>
             <form class="form" role="form" action="insert.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
@@ -160,10 +160,9 @@ function checkInput($data)
                 <span class="help-inline"><?php echo $imageError; ?></span>
                 <div class="form-actions">
                     <br>
-                    <button type="submit" class="btn btn-success"><span
-                            class="glyphicon glyphicon-pencil"></span>Ajouter</button>
-                    <a href="index.php" class="btn btn-primary"><span
-                            class="glyphicon glyphicon-arrow-left"></span>Retour</a>
+                    <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>
+                        Enregistrer</button>
+                    <a href="index.php" class="btn btn-danger"><i class="fa-solid fa-xmark"></i> Annuler</a>
                 </div>
             </form>
         </div>

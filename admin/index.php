@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
@@ -21,8 +21,8 @@
     </h1>
     <div class="container admin">
         <div class="row">
-            <h1><strong>Liste des items </strong><a href="insert.php" class="btn btn-success btn-lg"><span
-                        class="bi-plus"></span> Ajouter</a></h1>
+            <h1><strong>Liste des produits </strong><a href="insert.php" class="btn btn-success btn-lg"><i
+                        class="fa-solid fa-plus"></i> Ajouter</a></h1>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -49,11 +49,11 @@
                         echo '<td>' . number_format((float) $item['price'], 2, '.', '') . '</td>';
                         echo '<td>' . $item['category'] . '</td>';
                         echo ' <td width=340>';
-                        echo '<a class="btn btn-secondary" href="view.php?id=' . $item['id'] . '"><span class="bi-eye"></span> Voir</a>';
+                        echo '<a class="btn btn-secondary" href="view.php?id=' . $item['id'] . '"><i class="fa-regular fa-eye"></i> Voir</a>';
                         echo ' ';
-                        echo '<a class="btn btn-primary" href="update.php?id=' . $item['id'] . '"><span class="bi-pencil"></span>Modifier</a>';
+                        echo '<a class="btn btn-primary" href="update.php?id=' . $item['id'] . '"><i class="fa-solid fa-pencil"></i> Modifier</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="delete.php?id=' . $item['id'] . '"><span class="bi-x"></span> Supprimer</a>';
+                        echo '<a class="btn btn-danger" href="delete.php?id=' . $item['id'] . '"><i class="fa-solid fa-xmark"></i> Supprimer</a>';
                         echo '</td>';
                         echo '</tr>';
                     }

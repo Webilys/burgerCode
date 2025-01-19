@@ -134,7 +134,7 @@ function checkInput($data)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
@@ -146,7 +146,7 @@ function checkInput($data)
             <div class="col-sm-6">
 
 
-                <h1><strong>Modifier un item </strong></h1>
+                <h1><strong>Modifier un produit </strong></h1>
                 <br>
                 <form class="form" role="form" action="<?php echo 'update.php?id=' . $id; ?>" method="post"
                     enctype="multipart/form-data">
@@ -204,10 +204,10 @@ function checkInput($data)
                     <span class="help-inline"><?php echo $imageError; ?></span>
                     <div class="form-actions">
                         <br>
-                        <button type="submit" class="btn btn-success"><span
-                                class="glyphicon glyphicon-pencil"></span>Modifier</button>
-                        <a href="index.php" class="btn btn-primary"><span
-                                class="glyphicon glyphicon-arrow-left"></span>Retour</a>
+                        <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>
+                            Enregistrer les modifications</button>
+                        <a href="index.php" class="btn btn-danger"><i class="fa-solid fa-xmark"></i>
+                            Annuler</a>
                     </div>
                 </form>
             </div>
@@ -220,7 +220,8 @@ function checkInput($data)
                         <p>
                             <?php echo $description; ?>
                         </p>
-                        <a href="#" class="btn btn-order" role="button"><span class="bi-cart-fill"></span> Commander</a>
+                        <a href="#" class="btn btn-order" role="button"><i class="fa-solid fa-cart-plus"></i>
+                            Commander</a>
                     </div>
                 </div>
             </div>
