@@ -40,9 +40,11 @@ function checkInput($data)
 </head>
 
 <body>
-    <h1 class="text-logo">
-        <i class="fa-solid fa-burger"></i> Burger Code <i class="fa-solid fa-burger"></i></span>
-    </h1>
+    <a href="../index.php">
+        <h1 class="text-logo">
+            <i class="fa-solid fa-burger"></i> Burger Code <i class="fa-solid fa-burger"></i></span>
+        </h1>
+    </a>
     <div class="container admin">
         <div class="row">
             <div class="col-sm-6">

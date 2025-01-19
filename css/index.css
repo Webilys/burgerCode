@@ -7,13 +7,17 @@
 
 body {
   background: url(../images/bg.png);
+  cursor: default;
 }
 
 .site {
   font-family: "Holtwood One SC", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
-.text-logo {
+a {
+  text-decoration: none;
+}
+a .text-logo {
   font-family: "Holtwood One SC", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   color: #e7480f;
   text-shadow: 2px 2px #ffd301;
@@ -21,7 +25,7 @@ body {
   padding: 40px 0px;
   text-align: center;
 }
-.text-logo span {
+a .text-logo span {
   color: #ffd301;
   text-shadow: 0px 0px #ffd301;
 }

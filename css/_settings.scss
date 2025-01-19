@@ -18,22 +18,25 @@ $white: #fff;
 
 body {
   background: url(../images/bg.png);
+  cursor: default;
 }
 
 .site {
   font-family: $font1;
 }
-
-.text-logo {
-  font-family: $font1;
-  color: $color1;
-  text-shadow: 2px 2px $color2;
-  font-size: 50px;
-  padding: 40px 0px;
-  text-align: center;
-  span {
-    color: #ffd301;
-    text-shadow: 0px 0px $color2;
+a {
+  text-decoration: none;
+  .text-logo {
+    font-family: $font1;
+    color: $color1;
+    text-shadow: 2px 2px $color2;
+    font-size: 50px;
+    padding: 40px 0px;
+    text-align: center;
+    span {
+      color: #ffd301;
+      text-shadow: 0px 0px $color2;
+    }
   }
 }
 

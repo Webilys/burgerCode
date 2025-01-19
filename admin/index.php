@@ -16,13 +16,15 @@
 </head>
 
 <body>
-    <h1 class="text-logo">
-        <i class="fa-solid fa-burger"></i> Burger Code <i class="fa-solid fa-burger"></i></span>
-    </h1>
+    <a href="../index.php">
+        <h1 class="text-logo">
+            <i class="fa-solid fa-burger"></i> Burger Code <i class="fa-solid fa-burger"></i></span>
+        </h1>
+    </a>
     <div class="container admin">
         <div class="row">
             <h1><strong>Liste des produits </strong><a href="insert.php" class="btn btn-success btn-lg"><i
-                        class="fa-solid fa-plus"></i> Ajouter</a></h1>
+                        class="fa-solid fa-plus"></i> Ajouter un produit</a></h1>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
