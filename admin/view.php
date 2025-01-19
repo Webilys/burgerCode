@@ -98,6 +98,14 @@ function checkInput($data)
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container copyright">
+            <br>
+            <p class="copyright-text">©2025 - Burger Code - Made with <i class="fa-solid fa-heart"></i> by <a
+                    href="https://webilys.fr" target="_blank">Webilys</a> - Tous droits réservés.</p>
+            <br>
+        </div>
+    </footer>
 </body>
 
 </html>

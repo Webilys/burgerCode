@@ -23,7 +23,7 @@
     </a>
     <div class="container admin">
         <div class="row">
-            <h1><strong>Liste des produits </strong><a href="insert.php" class="btn btn-success btn-lg"><i
+            <h1><strong>Liste des produits </strong><a href="insert.php" class="btn btn-success"><i
                         class="fa-solid fa-plus"></i> Ajouter un produit</a></h1>
             <table class="table table-striped table-bordered">
                 <thead>
@@ -68,6 +68,14 @@
             </table>
         </div>
     </div>
+    <footer>
+        <div class="container copyright">
+            <br>
+            <p class="copyright-text">©2025 - Burger Code - Made with <i class="fa-solid fa-heart"></i> by <a
+                    href="https://webilys.fr" target="_blank">Webilys</a> - Tous droits réservés.</p>
+            <br>
+        </div>
+    </footer>
 </body>
 
 </html>
