@@ -10,13 +10,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
   <link href="http://fonts.googleapis.com/css?family=Holtwood+One+SC" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
   <div class="container site">
     <h1 class="text-logo">
-      <span class="bi-shop"></span> Burger Code <span class="bi-shop"></span>
+      <i class="fa-solid fa-burger"></i> Burger Code <i class="fa-solid fa-burger"></i></span>
     </h1>
     <?php
     require 'admin/database.php';
