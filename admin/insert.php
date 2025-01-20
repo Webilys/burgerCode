@@ -72,7 +72,7 @@ if (!empty($_POST)) {
         $statement = $db->prepare("INSERT INTO items (name,description,price, category, image) VALUES(?,?,?,?,?)");
         $statement->execute(array($name, $description, $price, $category, $image));
         Database::disconnect();
-        header("Location: index.php");
+        header("Location: products.php");
         exit;
     }
 }
@@ -167,7 +167,7 @@ function checkInput($data)
                     <br>
                     <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>
                         Enregistrer</button>
-                    <a href="index.php" class="btn btn-danger"><i class="fa-solid fa-xmark"></i> Annuler</a>
+                    <a href="products.php" class="btn btn-danger"><i class="fa-solid fa-xmark"></i> Annuler</a>
                 </div>
             </form>
         </div>

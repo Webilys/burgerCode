@@ -81,7 +81,8 @@ function checkInput($data)
                 </form>
                 <br>
                 <div class="form-actions">
-                    <a href="index.php" class="btn btn-primary"><i class="fa-solid fa-circle-arrow-left"></i> Retour</a>
+                    <a href="products.php" class="btn btn-primary"><i class="fa-solid fa-circle-arrow-left"></i>
+                        Retour</a>
                 </div>
             </div>
 

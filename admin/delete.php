@@ -11,7 +11,7 @@ if (!empty($_POST)) {
     $statement = $db->prepare("DELETE FROM items WHERE id = ?");
     $statement->execute(array($id));
     Database::disconnect();
-    header("Location: index.php");
+    header("Location: products.php");
     exit;
 }
 
@@ -60,7 +60,7 @@ function checkInput($data)
                 <div class="form-actions">
                     <br>
                     <button type="submit" class="btn btn-warning">Oui</button>
-                    <a href="index.php" class="btn btn-secondary">Non</a>
+                    <a href="products.php" class="btn btn-secondary">Non</a>
                 </div>
             </form>
         </div>

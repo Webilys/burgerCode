@@ -83,7 +83,7 @@ if (!empty($_POST)) {
         }
 
         Database::disconnect();
-        header("Location: index.php");
+        header("Location: products.php");
         exit;
     } else if ($isImageUpdated && !$isUploadSuccess) {
         $db = Database::connect();
@@ -211,7 +211,7 @@ function checkInput($data)
                         <br>
                         <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>
                             Enregistrer les modifications</button>
-                        <a href="index.php" class="btn btn-danger"><i class="fa-solid fa-xmark"></i>
+                        <a href="products.php" class="btn btn-danger"><i class="fa-solid fa-xmark"></i>
                             Annuler</a>
                     </div>
                 </form>

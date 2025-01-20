@@ -1,3 +1,51 @@
+<?php
+$userName = $userPassword = "";
+$userNameTrue = 'priscillaAdmin';
+$userPasswordTrue = 'Yoann110712@$';
+$verificationId = false;
+$userNameError = $userPasswordError = "";
+
+if (!empty($_POST)) {
+    $userName = checkInput($_POST['userName']);
+    $userPassword = checkInput($_POST['userPassword']);
+    $isSuccess = true;
+
+    // Vérification des identifiants
+    if ($userName === $userNameTrue && $userPassword === $userPasswordTrue) {
+        $verificationId = true;
+    } else {
+        $userPasswordError = "Identifiant ou mot de passe incorrect.";
+        $isSuccess = false;
+    }
+
+    // Validation des champs
+    if (empty($userName)) {
+        $userNameError = "Veuillez saisir votre identifiant.";
+        $isSuccess = false;
+    }
+
+    if (empty($userPassword)) {
+        $userPasswordError = "Veuillez saisir votre mot de passe.";
+        $isSuccess = false;
+    }
+
+    // Redirection si les identifiants sont corrects
+    if ($isSuccess && $verificationId) {
+        header("Location: products.php");
+        exit;
+    }
+}
+
+function checkInput($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -27,51 +75,31 @@
     </a>
     <div class="container admin">
         <div class="row">
-            <h1><strong>Liste des produits </strong><a href="insert.php" class="btn btn-success"><i
-                        class="fa-solid fa-plus"></i> Ajouter un produit</a></h1>
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>Prix</th>
-                        <th>Catégorie</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    require 'database.php';
-                    $db = Database::connect();
-                    $statement = $db->query('SELECT items.id, items.name, items.description, items.price, categories.name AS category 
-                    FROM items LEFT JOIN categories ON items.category = categories.id
-                    ORDER BY items.id DESC
-                    ');
+            <h1><strong>Se connecter</strong></h1>
+            <div class="login-box">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="userName">Identifiant</label>
+                        <input type="text" name="userName" id="userName" class="form-control" value="" />
 
-                    while ($item = $statement->fetch()) {
-                        echo '<tr>';
-                        echo '<td>' . $item['name'] . '</td>';
-                        echo '<td>' . $item['description'] . '</td>';
-                        echo '<td>' . number_format((float) $item['price'], 2, '.', '') . '</td>';
-                        echo '<td>' . $item['category'] . '</td>';
-                        echo ' <td width=340>';
-                        echo '<a class="btn btn-secondary" href="view.php?id=' . $item['id'] . '"><i class="fa-regular fa-eye"></i> Voir</a>';
-                        echo ' ';
-                        echo '<a class="btn btn-primary" href="update.php?id=' . $item['id'] . '"><i class="fa-solid fa-pencil"></i> Modifier</a>';
-                        echo ' ';
-                        echo '<a class="btn btn-danger" href="delete.php?id=' . $item['id'] . '"><i class="fa-solid fa-xmark"></i> Supprimer</a>';
-                        echo '</td>';
-                        echo '</tr>';
-                    }
-
-                    Database::disconnect();
-
-
-                    ?>
-                </tbody>
-            </table>
+                        <span class="text-danger"><?= $userNameError; ?></span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="userPassword">Mot de passe</label>
+                        <div class="input-group">
+                            <input type="password" name="userPassword" id="userPassword" class="form-control" />
+                            <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        <span class="text-danger"><?= $userPasswordError; ?></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-4">Se connecter</button>
+                </form>
+            </div>
         </div>
     </div>
+
     <footer>
         <div class="container copyright">
             <br>
@@ -80,6 +108,16 @@
             <br>
         </div>
     </footer>
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('userPassword');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="bi bi-eye"></i>' : '<i class="bi bi-eye-slash"></i>';
+        });
+    </script>
 </body>
 
 </html>
